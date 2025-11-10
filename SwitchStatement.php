@@ -1,6 +1,6 @@
 <?php
 
-$nilai = "E";
+$nilai = "A";
 
 switch ($nilai){
     case "A":

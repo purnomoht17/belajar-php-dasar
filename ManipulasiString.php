@@ -23,4 +23,4 @@ echo "Hello " . $name . ", Selamat Belajar PHP" . PHP_EOL;
 echo "Hello $name, Selamat Belajar PHP" . PHP_EOL;
 
 $var = "Eko";
-echo "This is {$var}s" . PHP_EOL;
+echo "This is {$var}s" . PHP_EOL; //curly brace

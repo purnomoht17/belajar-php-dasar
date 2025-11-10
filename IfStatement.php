@@ -1,7 +1,7 @@
 <?php
 
-$nilai = 10;
-$absen = 90;
+$nilai = 95;
+$absen = 50;
 
 if ($nilai >= 80 && $absen >= 80) {
     echo "Nilai Anda A" . PHP_EOL;

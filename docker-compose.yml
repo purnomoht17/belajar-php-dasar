@@ -1,0 +1,30 @@
+services:
+  # Layanan PHP (PHP-FPM)
+  php:
+    build: 
+      context: .
+    container_name: belajar_php_fpm
+    volumes:
+      - .:/var/www/html
+    # --- Tambahkan Healthcheck di sini ---
+    healthcheck:
+      test: ["CMD", "php-fpm", "-t"] # Perintah untuk memeriksa apakah PHP-FPM siap
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    # ------------------------------------
+
+  # Layanan Web Server (Nginx)
+  webserver:
+    image: nginx:latest
+    container_name: belajar_php_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    # --- Ubah depends_on menjadi service_healthy ---
+    depends_on:
+      php:
+        condition: service_healthy # Nginx HANYA akan start jika PHP sudah sehat
+    # --------------------------------------------
